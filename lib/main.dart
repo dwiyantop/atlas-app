@@ -5,18 +5,19 @@ import 'package:atlas_pos/src/settings/settings_controller.dart';
 import 'package:atlas_pos/src/settings/settings_service.dart';
 import 'package:atlas_pos/src/theme/theme_data.dart';
 
+import 'package:atlas_pos/src/core/di/core_di.dart';
+import 'package:atlas_pos/src/features/authentication/di/authentication_di.dart';
+
 void main() async {
-  // Set up the SettingsController, which will glue user settings to multiple
-  // Flutter Widgets.
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await CoreDI().configureDependency();
+  await AuthenticationDI().configureDependency();
+
   final settingsController = SettingsController(SettingsService());
 
-  // Load the user's preferred theme while the splash screen is displayed.
-  // This prevents a sudden theme change when the app is first displayed.
   await settingsController.loadSettings();
 
-  // Run the app and pass in the SettingsController. The app listens to the
-  // SettingsController for changes, then passes it further down to the
-  // SettingsView.
   runApp(
     MyApp(
       settingsController: settingsController,

@@ -1,7 +1,8 @@
-import 'package:atlas_pos/src/features/login/presentation/login_form.dart';
 import 'package:flutter/material.dart';
 import 'package:atlas_pos/src/theme/app_style.dart';
 import 'package:atlas_pos/src/core/presentation/utils/atlas_headline_text.dart';
+import 'package:atlas_pos/src/core/presentation/utils/atlas_body_text.dart';
+import 'package:atlas_pos/src/features/authentication/presentation/widget/login_form.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -22,9 +23,19 @@ class _LoginScreenState extends State<LoginScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AtlasHeadlineText(
-                'Login',
+                'Welcome Back!',
                 size: AtHeadlineTextSize.xs,
-                weight: AtHeadlineTextWeight.semiBold,
+                weight: AtHeadlineTextWeight.bold,
+              ),
+              SizedBox(
+                height: 4.0,
+              ),
+              AtlasBodyText(
+                'Please login to continue manage your dashboard.',
+                size: AtBodyTextSize.sm,
+              ),
+              SizedBox(
+                height: 16.0 * 2,
               ),
               LoginForm(),
             ],
