@@ -1,5 +1,7 @@
 import 'package:atlas_pos/src/core/presentation/utils/atlas_body_text.dart';
+import 'package:atlas_pos/src/core/presentation/utils/atlas_image_network.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class DashboardUserInfo extends StatelessWidget {
   const DashboardUserInfo({super.key});
@@ -8,12 +10,23 @@ class DashboardUserInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16.0),
-      child: const Row(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          AtlasBodyText(
+          const AtlasBodyText(
             'Company Name',
             size: AtBodyTextSize.md,
             weight: AtBodyTextWeight.extraBold,
+          ),
+          GestureDetector(
+            child: const AtlasImageNetwork(
+              'https://robohash.org/username',
+              width: 40.0,
+              height: 40.0,
+              circle: true,
+            ),
+            onTap: () {},
           ),
         ],
       ),
