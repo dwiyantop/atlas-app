@@ -8,8 +8,10 @@ class AppStyles {
   static const EdgeInsets defaultPaddingInsets = EdgeInsets.all(defaultPadding);
   static const EdgeInsets defaultMarginInsets = EdgeInsets.all(defaultMargin);
 
+  static const Radius defaultRadiusCirluar = Radius.circular(defaultBorderRadius);
+
   static const BoxDecoration defaultBoxDecoration = BoxDecoration(
-    borderRadius: BorderRadius.all(Radius.circular(defaultBorderRadius)),
+    borderRadius: BorderRadius.all(defaultRadiusCirluar),
     color: Colors.white,
     boxShadow: [
       BoxShadow(

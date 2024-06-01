@@ -12,7 +12,7 @@ import 'package:atlas_pos/src/settings/settings_controller.dart';
 import 'package:atlas_pos/src/settings/settings_view.dart';
 
 import 'package:atlas_pos/src/features/authentication/presentation/screen/login_screen.dart';
-import 'package:atlas_pos/src/features/dashboard/presentation/screen/dashboard_screen.dart';
+import 'package:atlas_pos/src/features/dashboard/presentation/screen/entry_point_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({
@@ -85,9 +85,9 @@ class MyApp extends StatelessWidget {
         body: Center(child: CircularProgressIndicator()),
       );
     } else if (authProvider.data != null) {
-      return const DashboardScreen();
+      return const EntryPointScreen();
     } else {
-      return const LoginScreen(); // Show login screen if no data is available
+      return const LoginScreen();
     }
   }
 }
