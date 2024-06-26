@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:atlas_pos/src/features/dashboard/presentation/widget/dashboard_overview.dart';
 import 'package:atlas_pos/src/features/dashboard/presentation/widget/dashboard_user_info.dart';
 
-import 'package:atlas_pos/src/features/search/presentation/screen/search_screen.dart';
+import 'package:atlas_pos/src/features/search_item/presentation/screen/search_item_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -17,7 +17,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   int currentPageIndex = 0;
 
   final List<Widget> screens = const [
-    SearchScreen(),
+    SearchItemScreen(),
   ];
 
   @override
