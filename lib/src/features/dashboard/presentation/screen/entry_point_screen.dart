@@ -1,8 +1,10 @@
+import 'package:atlas_pos/src/features/search_item/presentation/screen/search_item_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:atlas_pos/src/features/dashboard/presentation/screen/dashboard_screen.dart';
-import 'package:atlas_pos/src/features/search/presentation/screen/search_screen.dart';
+import 'package:atlas_pos/src/features/scan_item/presentation/screen/scan_item_screen.dart';
+import 'package:atlas_pos/src/features/pos/presentation/screen/pos_screen.dart';
 
 class EntryPointScreen extends StatefulWidget {
   const EntryPointScreen({super.key});
@@ -18,8 +20,9 @@ class _EntryPointScreenState extends State<EntryPointScreen> with SingleTickerPr
 
   final List<Widget> screens = const [
     DashboardScreen(),
-    SearchScreen(),
-    SearchScreen(),
+    ScanItemScreen(),
+    SearchItemScreen(),
+    PosScreen(),
   ];
 
   @override
@@ -44,6 +47,7 @@ class _EntryPointScreenState extends State<EntryPointScreen> with SingleTickerPr
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       body: AnimatedSwitcher(
         duration: const Duration(milliseconds: 200),
         child: screens[currentPageIndex],
@@ -66,14 +70,14 @@ class _EntryPointScreenState extends State<EntryPointScreen> with SingleTickerPr
             ),
           ],
           borderRadius: const BorderRadius.only(
-            topRight: Radius.circular(32.0),
-            topLeft: Radius.circular(32.0),
+            topRight: Radius.circular(28.0),
+            topLeft: Radius.circular(28.0),
           ),
         ),
         child: ClipRRect(
           borderRadius: const BorderRadius.only(
-            topRight: Radius.circular(32.0),
-            topLeft: Radius.circular(32.0),
+            topRight: Radius.circular(28.0),
+            topLeft: Radius.circular(28.0),
           ),
           child: NavigationBar(
             selectedIndex: currentPageIndex,
@@ -91,7 +95,7 @@ class _EntryPointScreenState extends State<EntryPointScreen> with SingleTickerPr
                 ),
               ),
               NavigationDestination(
-                label: 'Search Item',
+                label: 'Scan Item',
                 icon: Iconify(
                   Mdi.barcode_scanner,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
@@ -102,7 +106,18 @@ class _EntryPointScreenState extends State<EntryPointScreen> with SingleTickerPr
                 ),
               ),
               NavigationDestination(
-                label: 'Point of Sales',
+                label: 'Search Item',
+                icon: Iconify(
+                  Mdi.search_expand,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
+                selectedIcon: Iconify(
+                  Mdi.search_expand,
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
+              ),
+              NavigationDestination(
+                label: 'PoS',
                 icon: Iconify(
                   Mdi.storefront_outline,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
