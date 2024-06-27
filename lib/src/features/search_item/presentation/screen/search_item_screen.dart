@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
+import 'package:atlas_pos/src/theme/app_style.dart';
 import 'package:atlas_pos/src/core/presentation/form/text_field.dart';
+import 'package:atlas_pos/src/features/search_item/presentation/widget/search_item_item_card.dart';
 
 class SearchItemScreen extends StatefulWidget {
   const SearchItemScreen({super.key});
@@ -23,14 +25,30 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
       body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              margin: const EdgeInsets.all(16.0),
+              margin: AppStyles.defaultPaddingInsetsAll,
               child: const AtlasTextField(
                 label: 'Barcode',
-                placeholder: 'Scan or input barcode item',
-                suffixIconIconify: Mdi.barcode,
+                placeholder: 'Search item by name',
+                prefixIconIconify: Mdi.search,
                 initialValue: '',
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                padding: AppStyles.defaultPaddingInsetsHorizontal,
+                itemCount: 20,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    margin: const EdgeInsets.only(bottom: AppStyles.defaultMargin),
+                    child: InkWell(
+                      child: const SearchItemItemCard(),
+                      onTap: () {},
+                    ),
+                  );
+                },
               ),
             ),
           ],

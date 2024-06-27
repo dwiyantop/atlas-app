@@ -48,7 +48,7 @@ class _ScanItemScreenState extends State<ScanItemScreen> {
           children: [
             Center(
               child: Padding(
-                padding: AppStyles.defaultPaddingInsets,
+                padding: AppStyles.defaultPaddingInsetsAll,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(
                     AppStyles.defaultBorderRadius,
