@@ -66,7 +66,7 @@ class DashboardOverview extends StatelessWidget {
       ),
       color: Theme.of(context).colorScheme.primary,
       child: Container(
-        padding: AppStyles.defaultPaddingInsets,
+        padding: AppStyles.defaultPaddingInsetsAll,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
