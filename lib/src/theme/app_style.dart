@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 class AppStyles {
   static const double defaultPadding = 16.0;
   static const double defaultMargin = 16.0;
+  static const double smallPadding = 16.0 / 2;
+  static const double smallMargin = 16.0 / 2;
+  static const double extraSmallPadding = 16.0 / 4;
+  static const double extraSmallMargin = 16.0 / 4;
+
   static const double defaultBorderRadius = 8.0;
 
   static const EdgeInsets defaultPaddingInsetsAll = EdgeInsets.all(defaultPadding);

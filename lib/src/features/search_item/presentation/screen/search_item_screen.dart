@@ -4,6 +4,7 @@ import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:atlas_pos/src/theme/app_style.dart';
 import 'package:atlas_pos/src/core/presentation/form/text_field.dart';
 import 'package:atlas_pos/src/features/search_item/presentation/widget/search_item_item_card.dart';
+import 'package:atlas_pos/src/features/item_detail/presentation/screen/item_detail_screen.dart';
 
 class SearchItemScreen extends StatefulWidget {
   const SearchItemScreen({super.key});
@@ -44,8 +45,19 @@ class _SearchItemScreenState extends State<SearchItemScreen> {
                   return Container(
                     margin: const EdgeInsets.only(bottom: AppStyles.defaultMargin),
                     child: InkWell(
-                      child: const SearchItemItemCard(),
-                      onTap: () {},
+                      child: SearchItemItemCard(
+                        index: index,
+                        showStock: true,
+                        contentOnly: false,
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ItemDetailScreen(),
+                          ),
+                        );
+                      },
                     ),
                   );
                 },
